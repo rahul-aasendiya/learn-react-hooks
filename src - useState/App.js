@@ -8,25 +8,29 @@ function initialValue() {
 
 function App() {
   const [name, setName] = useState("Rahul");
-  const [names, setNames] = useState([]);
   const [flag, setFlag] = useState(false);
-  const [steps, setSteps] = useState(0);
+  const [steps, setSteps] = useState(initialValue());
+  const [names, setNames] = useState([]);
 
   function changeName() {
     console.log("clicked");
     return setFlag(!flag);
   }
+
   function increment() {
     return setSteps(steps + 2);
   }
+
   function decrement() {
     return setSteps(steps - 2);
   }
+
   function addNames(e) {
     e.preventDefault();
     setNames([...names, { id: names.length, name }]);
     setName("");
   }
+
   return (
     <div className="App">
       <h1>Hello {flag ? name : ""}</h1>
